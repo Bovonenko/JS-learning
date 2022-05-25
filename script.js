@@ -1,67 +1,37 @@
 "use strict"; 
 
-//cycles exercises
+//cycles exercises hard
 
-for (let i = 5; i < 11; i++) {
-    console.log(i);
-}
+//firstTask
+// const arr = [3, 5, 8, 16, 20, 23, 50];
+// const result = [];
 
-// let num = 5;
-// do {
-//     console.log(num);
-//     num++;
+// for (let i = 0; i < arr.length; i++) {
+//     result[i] = arr[i];
 // }
-// while (num < 11);
+// console.log(arr);
 
-// while (num < 11) {
-//     console.log(num);
-//     num++;
+
+//secondTask
+// const data = [5, 10, 'Shopping', 20, 'Homework'];
+
+// console.log(typeof(data[2]));
+// for (let i = 0; i < data.length; i++) {
+//     if (typeof(data[i]) === 'string') {
+//         data[i] += ' - done';
+//     } else {
+//         data[i] = data[i] * 2;
+//     }
 // }
+// console.log(data);
 
-for (let i = 20; i > 9; i--) {
-    if (i === 13) {
-        break;
-    }
-    console.log(i);
+
+//thirdTask
+const data = [5, 10, 'Shopping', 20, 'Homework'];
+const result = [];
+
+for (let i = 1; i <= data.length; i++) {
+    result[i - 1] = data[data.length - i];
 }
 
-// secondTask
-
-// console.log(3 % 2);
-// console.log(0 % 2);
-for (let i = 1; i < 11; i++) {
-    if (i % 2 === 0) {
-        console.log(i);
-    }
-}
-
-
-// thirdTask
-for (let i = 2; i <= 16; i++) {
-        if (i % 2 === 0) {
-            continue;
-        } else {
-            console.log(i);
-        }
-    }
-
-
-// fourthTask   
-let i = 2;
-while (i <= 16) {
-    if (i % 2 === 0) {
-        i++;
-        continue;
-    } else {
-        console.log(i);
-    }
-    i++;
-}
-
-// fifthTask
-const arrayOfNumbers = [];
-
-for (let i = 5; i < 11; i++) {
-    arrayOfNumbers[i - 5] = i;
-}
-console.log(arrayOfNumbers);
+console.log(result);
