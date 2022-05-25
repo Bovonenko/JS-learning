@@ -1,64 +1,64 @@
 "use strict"; 
 
-//logical operators
+//cikles
 
-// const hamburger = 5;
-// const fries = 0;
+// let num = 50;
 
-// if (hamburger && fries) {
-//     console.log('I am not hungry!');
-// } else {
-//     console.log('Not enough!');
+// while (num <= 55) {
+//     console.log(num);
+//     num++;
 // }
 
-// const hamburger = 3;
-// const fries = 1;
-// const cola = 0;
+// do {
+//     console.log(num);
+//     num++;
+// }
+// while (num < 55);
 
-// console.log(hamburger === 3 && cola && fries);
-
-// console.log(1 && 0);
-// console.log(1 && 5);
-// console.log(null && 5);
-// console.log(0 && 'adsafaf');
-
-// if (hamburger === 3 && cola ===1 && fries) {
-//     console.log('Evrn is not hungry!');
-// } else {
-//     console.log('Not enough!');
+// for (let i = 1; i < 10; i++) {
+//     if (i === 6) {
+//         // break;
+//         continue;
+//     }
+//     console.log(i);
 // }
 
-// console.log((hamburger && fries));
+// for (let i = 0; i < 3; i++) {
+//     console.log(i);
+//     for (let j = 0; j < 3; j++) {
+//         console.log(j);
+//     }
+// }
 
-
-let hamburger;
-const fries = NaN;
-const cola = 0;
-const nuggets = 2;
-
-
-
-if (hamburger && cola || fries ===3 && nuggets) {
-    console.log('Evrn is happy!');
-} else {
-    console.log('Not enough!');
+for (let i = 0; i < 3; i++) {
+    console.log('*');
+    for (let j = 0; j < 3; j++) {
+        console.log(j);
+    }
 }
 
-console.log((hamburger ===3 && cola === 2 || fries ===3 && nuggets));
+let result = '';
+const length = 7;
 
-let johnReport, alexReport, samReport = 'done';
+for (let i = 1; i < length; i++) {
 
-console.log(johnReport || alexReport || samReport);
+    for (let j = 0; j < i; j++) {
+        result += '*';
+    }
 
-console.log(!0);
+    result += '\n';
+}
+
+console.log(result);
 
 
-console.log(NaN || 2 || undefined);
-console.log(NaN && 2 && undefined);
-console.log(1 && 2 && 3);
-console.log(!1 && 2 || !3);
-console.log(25 || null && !3);
-console.log(NaN || null || !3 || undefined || 5);
-console.log(NaN || null && !3 && undefined || 5);
-console.log(5 === 5 && 3 > 1 || 5);
-
+first: for (let i = 0; i < 3; i++) {
+    console.log(`First level: ${i}`);
+    for (let j = 0; j < 3; j++) {
+        console.log(`Second level: ${j}`);
+        for (let k = 0; k < 3; k++) {
+            if (k === 2) continue first;
+            console.log(`Third level: ${k}`);
+        }
+    }
+}
