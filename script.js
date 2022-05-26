@@ -11,32 +11,22 @@ const numberOfFilms =  prompt('Сколько фильмов вы уже пос�
         'privat': false
     };
 
-// for (let i = 0; i < 2; i++) {
-//     const a = prompt('Один из последних просмотренных фильмов?', ''),
-//           b = prompt('На сколько оцените его?', '');
-
-//           if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-//             personalMovieDB.movies[a] = b;
-//             console.log('Done!');
-//           } else {
-//               console.log('error');
-//               i--;
-//           }
-// }
 let i = 0;
-do {
-    
-    const a = prompt('Один из последних просмотренных фильмов?', ''),
-          b = prompt('На сколько оцените его?', '');
-            i++;
-          if (a != '' && b != '' && a != null && b != null && a.length < 50)
-          {
-            personalMovieDB.movies[a] = b;
+while (i < 2) {
+    const a = prompt('Один из последних просмотренных фильмов?', '');
+
+          if (a != '' && a != null && a.length < 50) {
+            const b = prompt('На сколько оцените его?', '');
+            if (b != null && b != '') {
+                personalMovieDB.movies[a] = b;
+            }
           } else {
               i--;
           }
-} 
-while (i < 2);
+    i++;
+}
+
+
 console.log(personalMovieDB);
 if (personalMovieDB.count < 10) {
     console.log("Просмотрено довольно мало фильмов");
