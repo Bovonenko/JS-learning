@@ -1,48 +1,37 @@
 "use strict"; 
 
-//cycles exercises hard
+//cycles exercises in filmApp
 
-//firstTask
-// const arr = [3, 5, 8, 16, 20, 23, 50];
-// const result = [];
+const numberOfFilms =  prompt('Сколько фильмов вы уже посмотрели?'),
+    personalMovieDB = {
+        'count': numberOfFilms,
+        'movies': {},
+        'actors': {},
+        'genres': [],
+        'privat': false
+    };
 
-// for (let i = 0; i < arr.length; i++) {
-//     result[i] = arr[i];
-// }
-// console.log(arr);
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последних просмотренных фильмов?', ''),
+          b = prompt('На сколько оцените его?', '');
 
+          if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+            console.log('Done!');
+          } else {
+              console.log('error');
+              i--;
+          }
+          
 
-//secondTask
-// const data = [5, 10, 'Shopping', 20, 'Homework'];
-
-// console.log(typeof(data[2]));
-// for (let i = 0; i < data.length; i++) {
-//     if (typeof(data[i]) === 'string') {
-//         data[i] += ' - done';
-//     } else {
-//         data[i] = data[i] * 2;
-//     }
-// }
-// console.log(data);
-
-
-//thirdTask
-// const data = [5, 10, 'Shopping', 20, 'Homework'];
-// const result = [];
-
-// for (let i = 1; i <= data.length; i++) {
-//     result[i - 1] = data[data.length - i];
-// }
-
-// console.log(result);
-
-const lines = 5;
-let result = '';
-
-for (let i = 1; i <= lines; i++) {
-    for (let j = 0; j < i; j++) {
-        result += '*';
-    }
-    result += '\n';
 }
-console.log(result);
+console.log(personalMovieDB);
+if (personalMovieDB.count < 10) {
+    console.log("Просмотрено довольно мало фильмов");
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    console.log("Вы классический зритель");
+} else if (personalMovieDB.count > 30) {
+    console.log("Вы киноман");
+} else {
+    console.log("Произошла ошибка");
+}
