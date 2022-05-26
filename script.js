@@ -18,5 +18,14 @@ function getTimeFromMinutes(time) {
     }
 }
 getTimeFromMinutes(100);
-let time = 150;
-console.log(typeof(time) != 'number');
+
+function findMaxNumber(a, b, c, d) {
+    const arr = [a, b, c, d];
+    for (let i = 0; i < arr.length; i++) {
+        if (!arr[i] || typeof(arr[i]) != 'number') {
+            return 0;
+        }
+    }
+    return Math.max.apply(null, arr);
+}
+findMaxNumber(7, 1, 33.3, '10');
