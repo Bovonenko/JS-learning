@@ -1,39 +1,35 @@
 "use strict"; 
 
-//cycles exercises in filmApp
 
-const numberOfFilms =  prompt('Сколько фильмов вы уже посмотрели?'),
-    personalMovieDB = {
-        'count': numberOfFilms,
-        'movies': {},
-        'actors': {},
-        'genres': [],
-        'privat': false
-    };
 
-let i = 0;
-while (i < 2) {
-    const a = prompt('Один из последних просмотренных фильмов?', '');
-
-          if (a != '' && a != null && a.length < 50) {
-            const b = prompt('На сколько оцените его?', '');
-            if (b != null && b != '') {
-                personalMovieDB.movies[a] = b;
-            }
-          } else {
-              i--;
-          }
-    i++;
+function showFirstMessage(text) {
+    console.log(text);
+    let num = 10;
+    console.log(num);
 }
+showFirstMessage("Hello World!");
+// console.log(num);
 
+// function calc(a, b) {
+//     return (a + b);
+// }
 
-console.log(personalMovieDB);
-if (personalMovieDB.count < 10) {
-    console.log("Просмотрено довольно мало фильмов");
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-    console.log("Вы классический зритель");
-} else if (personalMovieDB.count > 30) {
-    console.log("Вы киноман");
-} else {
-    console.log("Произошла ошибка");
+// console.log(calc(4, 3));
+// console.log(calc(4, 7));
+
+let num = 20;
+function ret() {
+     let num = 50;
+     return num; 
 }
+const anotherNum = ret();
+console.log(num);
+
+
+const logger = function() {
+    console.log('Hello');
+};
+logger();
+
+
+const calc = (a, b) => a + b;
