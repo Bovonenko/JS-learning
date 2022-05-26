@@ -6,26 +6,24 @@ function sayHello(name) {
 sayHello('Rostyslav');
 
 function returnNeighboringNumbers(num) {
-    const arr = [num - 1, num, num + 1];
-    console.log(arr);
+    return [num - 1, num, num + 1];
 }
 returnNeighboringNumbers(3);
 
-function getMathResult(base, progression) {
-    let result = '';
-    if (progression > 0 && typeof(progression) != 'string') {
-        for (let i = 1; i <= progression; i++) {
-            result += base * i;
-            if (i === progression)  {
-                continue;
-            } else {
-                result += '---';
-            }
-        }
-    } else {
-        result = base;
-        return(result);
+function getMathResult(num, times) {
+    if (typeof(num) !== 'number' && num <= 0) {
+        return num;
     }
-    return(result);
+    let str = '';
+
+    for (let i = 1; i <= times; i++) {
+        str += num * i;
+        if (i === times)  {
+            str += `${num * i}`;
+        } else {
+            str += `${num * i}---`;
+        }
+    }
+    return str;
 }
 getMathResult(3, '2');
