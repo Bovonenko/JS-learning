@@ -1,23 +1,28 @@
 "use strict";
 
-function fib(length) {
-    let arr = [0, 1];
-    let str = '0 1';    
-    if (typeof(length) !== 'number' || length <= 0 || !Number.isInteger(length)) {
-        return '';
+function fib(num) {
+    if (typeof(num) !== 'number' || num <= 0 || !Number.isInteger(num)) {
+        return "";
     }
-    switch (length) {
-        case 1:
-            str = '0';
-            break;
-        default:
-            for (let i = 2; i < length; i++) {
-                arr[i] = arr[i - 1] + arr[i - 2];
-                
-                str += ` ${arr[i]}`;
-            }
-            break;
+
+    let result = '';
+    let first = 0;
+    let second = 1;
+
+    for (let i = 0; i < num; i++) {
+        if (i + 1 === num) {
+            result += `${first}`;
+            // Без пробела в конце
+        } else {
+            result += `${first} `;
+        }
+
+        let third = first + second;
+        first = second;
+        second = third;
     }
-    return str;
+
+    return result;
 }
-fib(9);
+
+fib(5)
