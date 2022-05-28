@@ -1,44 +1,30 @@
 "use strict";
 
-const someString = 'This is some strange string';
+let str = 'some';
+let strObj = new String(str);
 
-function reverse(str) {
-    let reverseStr = '';
+// console.log(typeof(str));
+// console.log(typeof(strObj));
 
-    if (typeof(str) !== 'string') {
-        // console.log('Ошибка!');
-        return 'Ошибка!';
+console.dir([1, 2, 3]);
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: function() {
+        console.log("Hello");
     }
-    
-    for (let i = str.length - 1; i >= 0; i--) {
-        reverseStr += `${str[i]}`;
-    }
-    // console.log(reverseStr);
-    return reverseStr;
-}
+};
 
-reverse(someString);
+const john = Object.create(soldier);
+// const john = {
+//     health: 100
 
-const baseCurrencies = ['USD', 'EUR'];
-const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
-const allCurrencies = [...baseCurrencies, ...additionalCurrencies];
-// console.log(allCurrencies);
+// };
 
-function availableCurr(arr, missingCurr) {
-    if (arr.length === 0) {
-        console.log('Нет доступных валют');
-        return 'Нет доступных валют';
-    }
+// john.__proto__ = soldier;
 
-    let availableCurr = 'Доступные валюты:\n';
+// Object.setPrototypeOf(john, soldier);
 
-    arr.forEach(function(curr) {
-        if (curr != missingCurr) {
-            availableCurr += `${curr}\n`;
-        }
-    });
-    console.log(availableCurr);
-    return availableCurr;
-}
-
-availableCurr(allCurrencies, 'RUB');
+// console.log(john.armor);
+john.sayHello();
