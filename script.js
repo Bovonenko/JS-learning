@@ -1,26 +1,31 @@
 "use strict";
+// let number = 5; debugger
+// function logNumber() {
+//     console.log(number); debugger
+// }
 
+// number = 6;
 
+// logNumber(); debugger
 
-const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
-function sortStudentsByGroups(arr) {
-    arr.sort();
-    const a = [], b = [], c = [], rest = [];
+// number = 8 ;
 
-    for (let i = 0; i < arr.length; i++) {
-        if (i < 3) {
-            a.push(arr[i]);
-        } else if (i < 6) {
-            b.push(arr[i]);
-        }
-        else if (i < 9) {
-            c.push(arr[i]);
-        } else {
-            rest.push(arr[i]);
-        }
-    }
-    console.log([a,b,c, `Оставшиеся студенты: ${rest.length === 0 ? '-' : rest.join(', ')}`]);
-    
-    
+// logNumber(); debugger
+
+function createCounter() {
+    let counter = 0;
+
+    const myFunction = function() {debugger
+        counter = counter + 1;debugger
+        return counter;debugger
+    };  
+
+    return myFunction;
 }
-sortStudentsByGroups(students); 
+debugger
+const increment = createCounter();debugger
+const c1 = increment();debugger
+const c2 = increment();debugger
+const c3 = increment();debugger
+
+console.log(c1, c2, c3);
