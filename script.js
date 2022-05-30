@@ -1,79 +1,57 @@
 "use strict";
 
-const personalMovieDB = {
-        'count': 0,
-        'movies': {},
-        'actors': {},
-        'genres': [],
-        'privat': false,
-        rememberMyFilms: function() {
-            for (let i = 0; i < 2; i++) {
-                const a = prompt('Один из последних просмотренных фильмов?', '').trim(),
-                      b = prompt('На сколько оцените его?', '');
-            
-                      if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-                        personalMovieDB.movies[a] = b;
-                        console.log('Done!');
-                      } else {
-                          console.log('error');
-                          i--;
-                      }
-            }
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
         },
-        start: function() {
-            personalMovieDB.count =  +prompt('Сколько фильмов вы уже посмотрели?');
-        
-            while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
-                personalMovieDB.count =  +prompt('Сколько фильмов вы уже посмотрели?');
-            }
+        {
+            width: 15,
+            length: 7
         },
-        detectPersonalLevel: function() {
-            console.log(personalMovieDB);
-            if (personalMovieDB.count < 10) {
-                console.log("Просмотрено довольно мало фильмов");
-            } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-                console.log("Вы классический зритель");
-            } else if (personalMovieDB.count > 30) {
-                console.log("Вы киноман");
-            } else {
-                console.log("Произошла ошибка");
-            }
+        {
+            width: 20,
+            length: 5
         },
-        showMyDB: function(hidden) {
-            if (!hidden) {
-                console.log(personalMovieDB);
-            }
-        },
-        toggleVisibleMyDB: function() {
-            if (personalMovieDB.privat) {
-                personalMovieDB.privat = false;
-            } else {
-                personalMovieDB.privat = true;
-            }
-        },
-        writeYourGenres: function() {
-            for (let i = 1; i < 2; i++) {
-                // let genre = prompt(`Ваш любимый жанр под номером ${i}`);
-
-                // if (genre === '' || genre == null) {
-                //     console.log(`Вы ввели некорректные данные или не ввели их вовсе`);
-                //     i--;
-                // } else {
-                //     personalMovieDB.genres[i - 1] = genre;
-                // }  
-                let genres = prompt(`Введите ваши любимые жанры через запятую`).toLowerCase();
-
-                if (genres === '' || genres == null) {
-                    console.log(`Вы ввели некорректные данные или не ввели их вовсе`);
-                    i--;
-                } else {
-                    personalMovieDB.genres = genres.split(', ');
-                    personalMovieDB.genres.sort();
-                }  
-            }
-            personalMovieDB.genres.forEach((item, i) => {
-                console.log(`Любимый жанр ${i + 1} - это ${item}`);
-            });
+        {
+            width: 8,
+            length: 10
         }
-        
-    };    
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50250
+};
+
+function isBudgetEnough(data) {
+    const {height} = data;
+    const {moneyPer1m3} = data;
+    const {budget} = data;
+    const {shops} = data;
+
+    let s = 0;
+    let v = 0;
+    shops.forEach((item) => {
+        s += item.width * item.length;
+    });
+    v = height * s;
+    if (v * moneyPer1m3 > budget) {
+        console.log('Бюджета недостаточно');
+    } else {
+        console.log('Бюджета достаточно');
+    }
+    console.log(v * moneyPer1m3);
+}
+
+isBudgetEnough(shoppingMallData);
+
+
+// const obj = {
+//     width: 10,
+//     length: 5
+// };
+// let calc = obj.width * obj.length;
+
+// calc += 2 * 5;
+// console.log(calc);
