@@ -1,12 +1,16 @@
 
 
-function fib(length) {
-    
-    if (length < 3) {
+function factorial(n) {
+    if (typeof(n) !== 'number' || !Number.isInteger(n)) {
+        return 'Wrong number!';
+    } else if (n <= 0) {
         return 1;
-    } else {
-        return  fib(length - 1) + fib(length - 2);
     }
-
+    else if (n == 1) {
+        return n;
+    } else {
+        return n * factorial(n - 1);
+    }
 }
-console.log(fib(6));
+
+console.log(factorial(5));
