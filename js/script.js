@@ -1,54 +1,29 @@
 'use strict';
 
-const box = document.getElementById('box'),
-      btns = document.getElementsByTagName('button'),
-      circles = document.getElementsByClassName('circle'),
-      wrapper = document.querySelector('.wrapper'),
-      hearts = wrapper.querySelectorAll('.heart'),
-      oneHeart = wrapper.querySelector('.heart');
-      
+const btns = document.querySelectorAll('button'),
+      overlay = document.querySelector('.overlay');
 
-// box.style.backgroundColor = 'blue';
-// box.style.width = '500px';
+// let i = 0;
+const deleteElement = (e) => {
+    console.log(e.target);
+    console.log(e.type);
 
-box.style.cssText = `background-color: blue; width: 500px`;
+    // i++;
+    // if (i == 1) {
+    //     btn.removeEventListener('click', deleteElement);
+    // }
 
-btns[1].style.borderRadius = '100%';
-circles[0].style.backgroundColor = 'red';
+};
+// btn.addEventListener('click', deleteElement);
+// overlay.addEventListener('click', deleteElement);
 
-// for (let i = 0; i < hearts.length; i++) {
-//     hearts[i].style.backgroundColor = 'blue';
-// }
-
-hearts.forEach(item => {
-    item.style.backgroundColor = 'blue';
+btns.forEach(btn => {
+    btn.addEventListener('click', deleteElement, {once: true});
 });
 
-const div = document.createElement('div');
-// const text = document.createTextNode('Тут был я');
+const link = document.querySelector('a');
+link.addEventListener('click', (event) => {
+    event.preventDefault();
 
-div.classList.add('black');
-
-// document.body.append(div);
-wrapper.append(div);
-// wrapper.appendChild(div); устаревший
-
-
-// wrapper.prepend(div);
-
-// hearts[0].before(div);
-// hearts[0].after(div);
-
-// wrapper.insertBefore(div, hearts[2]); устаревший
-
-// circles[0].remove();
-// wrapper.removeChild(hearts[1]); устаревший
-
-hearts[0].replaceWith(circles[0]);
-// wrapper.replaceChild(circles[0], hearts[0]); устаревший
-
-div.innerHTML = '<h1>Hello World</h1>';
-
-// div.textContent = 'Hello';
-
-div.insertAdjacentHTML('afterend', '<h2>Hello</h2>');
+    console.log(event.target);
+});
