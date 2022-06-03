@@ -1,16 +1,33 @@
+//touchstart
+//touchmove
+//touchend
+//touchenter
+//touchleave
+//touchcancel
 
+window.addEventListener('DOMContentLoaded', () => {
+    const box = document.querySelector('.box');
 
-function factorial(n) {
-    if (typeof(n) !== 'number' || !Number.isInteger(n)) {
-        return 'Wrong number!';
-    } else if (n <= 0) {
-        return 1;
-    }
-    else if (n == 1) {
-        return n;
-    } else {
-        return n * factorial(n - 1);
-    }
-}
+    box.addEventListener('touchstart', (e) => {
+        e.preventDefault();
 
-console.log(factorial(5));
+        console.log('start');
+        console.log(e.targetTouches);
+    });
+
+    box.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+
+        console.log(e.targetTouches[0].pageX);
+    });
+
+    // box.addEventListener('touchend', (e) => {
+    //     e.preventDefault();
+
+    //     console.log('End');
+    // });
+});
+
+//touches 
+//targetTouches
+//changedTouches
