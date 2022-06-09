@@ -1,36 +1,12 @@
-'use strict';
-
-class Rectangle {
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
-    }
-
-    calcAre() {
-        return this.height * this.width;
-    }
+const log = function(a, b, ...rest) {
+    console.log(a, b, rest);
 }
 
-class ColoredRectangleWidthText extends Rectangle {
-    constructor(height, width, text, bgColor ) {
-        super(height, width);
-        this.text = text;
-        this.bgColor = bgColor;
-    }
+log('basic', 'rest', 'operator', 'usage');
 
-    showMyProps() {
-        console.log(`Text: ${this.text}, color: ${this.bgColor}`);
-    }
+function calcOrDouble(number, basis = 2) {
+    // basis = basis || 2;
+    console.log(number * basis);
 }
 
-const div = new ColoredRectangleWidthText(25, 10, 'Hello World', 'red');
-
-div.showMyProps();
-console.log(div.calcAre());
-
-// const square = new Rectangle(10, 10);
-// const long = new Rectangle(20, 100);
-
-// console.log(long.calcAre());
-// console.log(square.calcAre());
-
+calcOrDouble(3);
