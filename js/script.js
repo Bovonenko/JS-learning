@@ -1,51 +1,60 @@
 "use strict";
 
-// console.log('Запрос данных...');
+// filter
 
-// const req = new Promise(function(resolve, reject) {
-//     setTimeout(() => {
-//         console.log('Подготовка данных...');
+// const names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart'];
 
-//         const product = {
-//             name: 'TV',
-//             price: 2000
-//         };
-
-//         resolve(product);
-//     }, 2000);
+// const shortNames = names.filter((name) => {
+//     return name.length < 5;
 // });
 
-// req.then((product) => {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() =>{
-//             product.status = 'order';
-//             resolve(product);
-//         }, 2000);
-//     });
-// }).then(data => {
-//     data.modify = true;
-//     return data;
-// }).then((data) => {
-//     console.log(data);
-// }).catch(() => {
-//     console.error('Error');
-// }).finally(() => {
-//     console.log('Finally');
-// });
+// console.log(shortNames);
 
-const test = time => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(), time);
-    });
+// map
+
+// const answers = ['iVan', 'Anna', 'Hello'];
+
+// const result = answers.map(item => item.toLowerCase());
+
+// console.log(result);
+
+// every/some
+
+// const some = [4, 'qeqwe', 'afzxc'];
+
+// // console.log(some.some(item => typeof(item) === 'number'));
+
+// console.log(some.every(item => typeof(item) === 'number'));
+
+// reduce
+
+// const arr = [4, 5, 1, 3, 2, 6];
+//                         // 3     4
+//                         // 4     5
+//                         // 9     1
+//                         // 10    3
+
+// const res = arr.reduce((sum, current) => sum + current, 3);
+// console.log(res);
+
+// const arr = ['apple', 'pear', 'plum'];
+//                         // 0     4
+//                         // 4     5
+//                         // 9     1
+//                         // 10    3
+
+// const res = arr.reduce((sum, current) => `${sum}, ${current}`);
+// console.log(res);
+
+const obj = {
+    ivna: 'persone',
+    ann: 'persone',
+    dog: 'animal',
+    cat: 'animal'
 };
 
-// test(1000).then(() => console.log('1000 ms'));
-// test(2000).then(() => console.log('2000 ms'));
+const newArr = Object.entries(obj)
+.filter(item => item[1] === 'persone')
+.map(item => item[0]);
 
-// Promise.all([test(1000), test(2000)]).then(() => {
-//     console.log('All');
-// });
-
-Promise.race([test(1000), test(2000)]).then(() => {
-    console.log('All');
-});
+console.log(newArr);
