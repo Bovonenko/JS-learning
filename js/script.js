@@ -1,75 +1,34 @@
-"use strict";
-
-const films = [
-    {
-        name: 'Titanic',
-        rating: 9
-    },
-    {
-        name: 'Die hard 5',
-        rating: 5
-    },
-    {
-        name: 'Matrix',
-        rating: 8
-    },
-    {
-        name: 'Some bad film',
-        rating: 4
-    }
+const funds = [
+    {amount: -1400},
+    {amount: 2400},
+    {amount: -1000},
+    {amount: 500},
+    {amount: 10400},
+    {amount: -11400}
 ];
 
-function showListOfFilms(arr) {
-    return arr.reduce((acc, curr) =>`${typeof(acc) === 'object' ? acc.name : acc}, ${curr.name}`);
-}
+const getPositiveIncomeAmount = (data) => {
+    // let arr = data.filter(item => item.amount > 0).map(item => item = item.amount);
+    return data.filter(item => item.amount > 0).reduce((acc, curr) => acc + curr.amount, 0);
+    // .reduce((acc, curr) => acc + curr)
+    // let sum = 0;
+    // return arr.map(item => item = item.amount);
+    // arr.forEach(item => sum += item.amount);
+    // return sum;
+};
+// console.log(getPositiveIncomeAmount(funds));
 
-console.log(showListOfFilms(films));
-// films[0].id = 1;
-// console.log(Object.keys(films[0]).some(item => item === 'id'));
+// getPositiveIncomeAmount(funds);
 
-
-function showGoodFilms(arr) {
-    const goodFilms = arr.filter(film => film.rating >= 8);
-    console.log(goodFilms);
-}
-// showGoodFilms(films);
-
-function showListOfFilms(arr) {
-    const filmList = arr.map(film => film.name);
-    console.log(filmList.join(', '));
-}
-// showListOfFilms(films);
-
-function setFilmsIds(arr) {
-    // let filmsId = [...arr];
-    // filmsId.forEach((item, i) => {
-    //     item.id = i;
-    // });
-    // console.log(filmsId);
-    // return filmsId;
-    return arr.map((film, i) => {
-        film.id = i;
-        return film;
-    });
+const getTotalIncomeAmount = (data) => {
     
-}
-setFilmsIds(films);
-
-const tranformedArray = setFilmsIds(films);
-
-function checkFilms(arr) {
+    // if (!data.every(item => item.amount >= 0)) {
+    //     return data.map(item => item = item.amount).reduce((acc, curr) => acc + curr);
+    // } else {
+    //     return getPositiveIncomeAmount(data);
+    // }
     
-    // const checkEveryFilm = function () {
-    //     let newArr = [];
-    //     arr.forEach((film, i) => {
-    //         newArr[i] = Object.keys(film).some(key => key === 'id');          
-    //     });
-    //     return newArr;
-    // };
-    
-    // return checkEveryFilm().every(i => i === true);
+    return data.some(item => item.amount < 0) ? data.reduce((acc, curr) => acc + curr.amount, 0) : getPositiveIncomeAmount(data);
+};
 
-    return arr.every(film => film.id || film.id === 0);
-}
-checkFilms(films);
-
+console.log(getTotalIncomeAmount(funds));
