@@ -1,34 +1,30 @@
-const funds = [
-    {amount: -1400},
-    {amount: 2400},
-    {amount: -1000},
-    {amount: 500},
-    {amount: 10400},
-    {amount: -11400}
-];
+'use strict';
 
-const getPositiveIncomeAmount = (data) => {
-    // let arr = data.filter(item => item.amount > 0).map(item => item = item.amount);
-    return data.filter(item => item.amount > 0).reduce((acc, curr) => acc + curr.amount, 0);
-    // .reduce((acc, curr) => acc + curr)
-    // let sum = 0;
-    // return arr.map(item => item = item.amount);
-    // arr.forEach(item => sum += item.amount);
-    // return sum;
-};
-// console.log(getPositiveIncomeAmount(funds));
+// new RegExp('pattern', 'flags');
+// /pattern/f
 
-// getPositiveIncomeAmount(funds);
+// const ans = prompt('Введите ваше число');
 
-const getTotalIncomeAmount = (data) => {
-    
-    // if (!data.every(item => item.amount >= 0)) {
-    //     return data.map(item => item = item.amount).reduce((acc, curr) => acc + curr);
-    // } else {
-    //     return getPositiveIncomeAmount(data);
-    // }
-    
-    return data.some(item => item.amount < 0) ? data.reduce((acc, curr) => acc + curr.amount, 0) : getPositiveIncomeAmount(data);
-};
+// const reg = /\d/g;
+// console.log(ans.match(reg));
 
-console.log(getTotalIncomeAmount(funds));
+const str = 'My name is R2D2';
+
+console.log(str.match(/\D/ig));
+
+// 
+
+// \d
+
+// i  
+// g
+// m
+
+// console.log(ans.search(reg));
+// console.log(ans.match(reg));
+
+// const pass = prompt('password');
+
+// console.log(pass.replace(/./g, "*"));
+
+// console.log('12-34-56'.replace(/-/g, ':'));
