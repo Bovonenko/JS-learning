@@ -1,11 +1,9 @@
-function myModule() {
-    this.hello = function() {
-        console.log('hello');
-    };
+export let one = 1;
 
-    this.goodbye = function() {
-        console.log('goodbye');
-    };
+let two = 2;
+
+export {two};
+
+export default function sayHi() {
+    console.log('Hello');
 }
-
-module.exports = myModule;
