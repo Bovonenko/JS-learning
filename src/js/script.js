@@ -1,15 +1,30 @@
 'use strict';
 
-try {
-    console.log('Normal');
-    console.log(a);
-    console.log('result');
-} catch(error) {
-    console.log(error.name);
-    console.log(error.message);
-    console.log(error.stack);
-} finally {
-    
+// function* generator() {
+//     yield 'S';
+//     yield 'c';
+//     yield 'r';
+//     yield 'i';
+//     yield 'p';
+//     yield 't';
+// }
+
+// const str = generator();
+
+// console.log(str.next().value);
+
+function* count(n) {
+    for (let i = 0; i < n; i++) {
+        yield i;
+    }
 }
 
-console.log('Still normal');
+for (let k of count(7)) {
+    console.log(k);
+}
+
+// const counter = count(7);
+
+// console.log(counter.next().value);
+// console.log(counter.next().value);
+// console.log(counter.next().value);
